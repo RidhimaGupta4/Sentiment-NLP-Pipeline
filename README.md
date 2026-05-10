@@ -13,7 +13,7 @@
 
 This project answers a real business question:
 
-> **"Which customer reviews need immediate human attention — and which products, companies, and topics are driving negative sentiment?"**
+> **"Which customer reviews need immediate human attention and which products, companies, and topics are driving negative sentiment?"**
 
 It delivers:
 - **DistilBERT fine-tuned** on 2,000 UK customer reviews (3-class: positive / neutral / negative)
@@ -27,7 +27,7 @@ It delivers:
 ## 🗂️ Repository Structure
 
 ```
-sentiment-nlp-pipeline/
+Sentiment-NLP-Pipeline/
 │
 ├── scripts/
 │   ├── 01_generate_data.py        # Generates 2,000 UK review records (ONS/Trustpilot-aligned)
@@ -53,7 +53,7 @@ sentiment-nlp-pipeline/
 ├── mlflow_runs/                   # MLflow experiment artefacts (auto-generated)
 │
 ├── dashboard/
-│   └── index.html                 # ✅ Fully self-contained interactive dashboard
+│   └── index.html                 # Fully self-contained interactive dashboard
 │
 ├── outputs/
 │   ├── 01_sentiment_distribution.png
@@ -112,7 +112,7 @@ Max length  : 128 tokens
 
 ---
 
-## ✅ Data Integrity & ML Best Practices
+## Data Integrity & ML Best Practices
 
 This project explicitly guards against the most common ML mistakes:
 
@@ -220,8 +220,8 @@ Epoch 3: train_loss=0.341  val_loss=0.372  val_acc=87.6%  ← best
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/YOUR_USERNAME/sentiment-nlp-pipeline.git
-cd sentiment-nlp-pipeline
+git clone https://github.com/RidhimaGupta4/Sentiment-NLP-Pipeline.git
+cd Sentiment-NLP-Pipeline
 ```
 
 ### 2. Install dependencies
@@ -316,15 +316,15 @@ print(con.execute(\"SELECT true_sentiment, COUNT(*) FROM reviews GROUP BY 1 ORDE
 
 ## 💼 Skills Demonstrated
 
-- ✅ Fine-tuning a transformer (DistilBERT) for real NLP classification
-- ✅ Airtight ML hygiene — no leakage, stratified splits, train-only class weights
-- ✅ MLflow experiment tracking with parameters, metrics, and artefacts
-- ✅ Production inference pipeline with priority scoring
-- ✅ Rule-based NLP (topic extraction, complaint flagging)
-- ✅ End-to-end pipeline — data → model → dashboard
-- ✅ Stakeholder-ready dashboard (no install, opens in browser)
-- ✅ Model card with limitations documented
-- ✅ SQL analytical thinking (10 queries)
+- Fine-tuning a transformer (DistilBERT) for real NLP classification
+- Airtight ML hygiene — no leakage, stratified splits, train-only class weights
+- MLflow experiment tracking with parameters, metrics, and artefacts
+- Production inference pipeline with priority scoring
+- Rule-based NLP (topic extraction, complaint flagging)
+- End-to-end pipeline — data → model → dashboard
+- Stakeholder-ready dashboard (no install, opens in browser)
+- Model card with limitations documented
+- SQL analytical thinking (10 queries)
 
 ---
 
@@ -338,6 +338,6 @@ MIT — free to use, adapt, and extend.
 
 Built as a UK Data Scientist / NLP Engineer portfolio project.
 
-**Connect:** [LinkedIn](https://linkedin.com) · [GitHub](https://github.com) · [Portfolio](https://yourportfolio.com)
+**Connect:** [LinkedIn](https://www.linkedin.com/in/ridhimagupta1623/) · [GitHub](https://github.com/RidhimaGupta4) 
 
-> If this helped you, please ⭐ star the repo.
+> If this project helped you, please ⭐ star the repo — it helps others find it.
