@@ -1,0 +1,31 @@
+company,category,total_reviews,avg_rating,pct_positive,pct_negative,pct_neutral,priority_count
+AO.com,Electronics,70,3.33,58.6,34.3,7.1,26
+ASOS,Clothing & Fashion,55,3.42,63.6,29.1,7.3,20
+Amazon UK,Books & Media,64,3.38,57.8,31.2,10.9,17
+Argos,Home & Kitchen,71,3.14,52.1,38.0,9.9,21
+Boohoo,Clothing & Fashion,70,3.23,51.4,32.9,15.7,18
+Book Depository,Books & Media,75,2.81,44.0,45.3,10.7,22
+Boots,Health & Beauty,83,3.28,56.6,36.1,7.2,29
+Cult Beauty,Health & Beauty,64,3.25,54.7,35.9,9.4,18
+Currys,Electronics,77,3.53,61.0,26.0,13.0,15
+Decathlon UK,Sports & Outdoors,76,3.24,52.6,30.3,17.1,20
+Dunelm,Home & Kitchen,55,2.89,43.6,41.8,14.5,18
+Ebuyer,Electronics,66,3.2,50.0,31.8,18.2,15
+Foyles,Books & Media,81,3.07,49.4,38.3,12.3,23
+GO Outdoors,Sports & Outdoors,80,3.12,51.2,32.5,16.2,29
+Halfords,Sports & Outdoors,62,3.13,50.0,38.7,11.3,22
+Holland & Barrett,Health & Beauty,61,3.25,55.7,36.1,8.2,18
+IKEA UK,Home & Kitchen,43,3.28,60.5,30.2,9.3,14
+John Lewis,Clothing & Fashion,65,3.23,53.8,33.8,12.3,20
+LookFantastic,Health & Beauty,59,2.92,47.5,47.5,5.1,19
+Marks & Spencer,Clothing & Fashion,65,3.25,50.8,35.4,13.8,19
+Next,Clothing & Fashion,66,3.53,63.6,25.8,10.6,18
+Robert Dyas,Home & Kitchen,82,3.24,51.2,32.9,15.9,29
+Scan Computers,Electronics,67,3.03,44.8,37.3,17.9,22
+Sports Direct,Sports & Outdoors,62,3.15,45.2,33.9,21.0,20
+Superdrug,Health & Beauty,73,3.16,53.4,39.7,6.8,20
+TechDirect UK,Electronics,59,3.25,54.2,32.2,13.6,14
+WHSmith,Books & Media,54,2.87,42.6,42.6,14.8,15
+Waterstones,Books & Media,61,3.15,52.5,32.8,14.8,14
+Wayfair UK,Home & Kitchen,65,3.4,56.9,27.7,15.4,19
+Wiggle,Sports & Outdoors,69,3.32,55.1,31.9,13.0,22
