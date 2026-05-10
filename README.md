@@ -3,7 +3,7 @@
 > Fine-tuned DistilBERT for 3-class sentiment classification on UK customer reviews.  
 > Extracts topics, auto-flags priority complaints (safety · legal · fraud), and ships a fully interactive dashboard.
 
-[![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-a855f7?style=for-the-badge)](https://YOUR_USERNAME.github.io/sentiment-nlp-pipeline/)
+[![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-a855f7?style=for-the-badge)](https://RidhimaGupta4.github.io/Sentiment-NLP-Pipeline/)
 [![Model](https://img.shields.io/badge/Model-DistilBERT-orange?style=for-the-badge)](https://huggingface.co/distilbert-base-uncased)
 [![Accuracy](https://img.shields.io/badge/Test%20Accuracy-87.6%25-22c55e?style=for-the-badge)]()
 
