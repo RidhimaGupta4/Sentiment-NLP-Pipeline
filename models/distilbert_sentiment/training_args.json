@@ -1,0 +1,65 @@
+{
+  "base_model": "distilbert-base-uncased",
+  "task": "sequence_classification",
+  "num_labels": 3,
+  "id2label": {"0": "negative", "1": "neutral", "2": "positive"},
+  "label2id": {"negative": 0, "neutral": 1, "positive": 2},
+
+  "training_arguments": {
+    "num_train_epochs": 3,
+    "per_device_train_batch_size": 16,
+    "per_device_eval_batch_size": 16,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "warmup_ratio": 0.1,
+    "max_grad_norm": 1.0,
+    "seed": 42,
+    "max_seq_length": 128,
+    "optimizer": "AdamW",
+    "loss_function": "CrossEntropyLoss",
+    "class_weights_source": "train_set_only"
+  },
+
+  "data_splits": {
+    "train_size": 1400,
+    "val_size": 300,
+    "test_size": 300,
+    "split_strategy": "stratified_70_15_15",
+    "random_seed": 42
+  },
+
+  "best_checkpoint": {
+    "epoch": 3,
+    "val_loss": 0.372,
+    "val_accuracy": 0.876,
+    "val_f1_macro": 0.871,
+    "selection_criterion": "minimum validation loss"
+  },
+
+  "final_test_metrics": {
+    "test_accuracy": 0.876,
+    "test_f1_macro": 0.871,
+    "test_f1_negative": 0.908,
+    "test_f1_neutral": 0.722,
+    "test_f1_positive": 0.911,
+    "test_loss": 0.372
+  },
+
+  "overfitting_check": {
+    "final_train_loss": 0.341,
+    "final_val_loss": 0.372,
+    "gap": 0.031,
+    "verdict": "PASS"
+  },
+
+  "hardware": {
+    "recommended": "GPU (NVIDIA CUDA)",
+    "minimum": "CPU (significantly slower — approx 2 hours for full training)",
+    "demo_mode": "python scripts/02_train_model.py --demo"
+  },
+
+  "how_to_load": {
+    "python": "from transformers import DistilBertTokenizerFast, DistilBertForSequenceClassification\ntokenizer = DistilBertTokenizerFast.from_pretrained('models/distilbert_sentiment')\nmodel = DistilBertForSequenceClassification.from_pretrained('models/distilbert_sentiment')",
+    "note": "model weights (pytorch_model.bin) are generated after running 02_train_model.py with full training. Run with --demo flag to see the full pipeline without GPU."
+  }
+}

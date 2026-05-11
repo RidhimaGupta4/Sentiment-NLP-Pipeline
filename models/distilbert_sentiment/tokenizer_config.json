@@ -1,0 +1,15 @@
+{
+  "cls_token": "[CLS]",
+  "do_lower_case": true,
+  "mask_token": "[MASK]",
+  "model_max_length": 512,
+  "max_length": 128,
+  "pad_token": "[PAD]",
+  "sep_token": "[SEP]",
+  "strip_accents": null,
+  "tokenize_chinese_chars": true,
+  "tokenizer_class": "DistilBertTokenizerFast",
+  "unk_token": "[UNK]",
+  "padding": "max_length",
+  "truncation": true
+}
