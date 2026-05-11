@@ -1,0 +1,21 @@
+{
+  "model_name": "distilbert-sentiment-uk-reviews",
+  "base_model": "distilbert-base-uncased",
+  "task": "3-class sentiment classification",
+  "classes": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "training_data": "2000 UK customer reviews (Trustpilot/Amazon UK modelled)",
+  "test_accuracy": 0.876,
+  "test_f1_macro": 0.871,
+  "known_limitations": [
+    "Neutral class has lowest F1 (0.722) due to inherent ambiguity",
+    "Trained on English UK reviews only \u2014 may not generalise to other dialects",
+    "Short reviews (<5 words) may produce lower confidence outputs"
+  ],
+  "intended_use": "Automated sentiment triage for UK e-commerce reviews",
+  "not_intended_for": "Medical, legal, or financial decision making",
+  "run_id": "c077fdf609fd4ff198bc89043890d762"
+}

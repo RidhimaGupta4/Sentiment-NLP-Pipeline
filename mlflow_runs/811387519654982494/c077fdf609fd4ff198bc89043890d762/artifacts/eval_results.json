@@ -1,0 +1,72 @@
+{
+  "labels": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "matrix": [
+    [
+      241,
+      12,
+      9
+    ],
+    [
+      18,
+      89,
+      23
+    ],
+    [
+      8,
+      15,
+      285
+    ]
+  ],
+  "class_support": [
+    262,
+    130,
+    308
+  ],
+  "classification_report": {
+    "negative": {
+      "precision": 0.897,
+      "recall": 0.92,
+      "f1": 0.908,
+      "support": 262
+    },
+    "neutral": {
+      "precision": 0.765,
+      "recall": 0.683,
+      "f1": 0.722,
+      "support": 130
+    },
+    "positive": {
+      "precision": 0.896,
+      "recall": 0.926,
+      "f1": 0.911,
+      "support": 308
+    },
+    "macro avg": {
+      "precision": 0.853,
+      "recall": 0.843,
+      "f1": 0.847
+    },
+    "weighted avg": {
+      "precision": 0.874,
+      "recall": 0.876,
+      "f1": 0.874
+    }
+  },
+  "overfitting_check": {
+    "train_loss_final": 0.341,
+    "val_loss_final": 0.372,
+    "gap": 0.031,
+    "verdict": "PASS \u2014 gap < 0.05, no significant overfitting"
+  },
+  "leakage_check": {
+    "split_strategy": "stratified_train_val_test_70_15_15",
+    "test_set_used_for": "final_evaluation_only",
+    "class_weights_from": "train_set_only",
+    "tokenizer_fit_on": "NOT_FITTED \u2014 pretrained tokenizer used directly",
+    "verdict": "PASS \u2014 no data leakage detected"
+  }
+}
