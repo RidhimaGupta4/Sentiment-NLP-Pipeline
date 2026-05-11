@@ -3,6 +3,8 @@
 > Fine-tuned DistilBERT for 3-class sentiment classification on UK customer reviews.  
 > Extracts topics, auto-flags priority complaints (safety · legal · fraud), and ships a fully interactive dashboard.
 
+![Model](https://img.shields.io/badge/Model-DistilBERT--Base-orange?style=for-the-badge&logo=huggingface) ![NLP](https://img.shields.io/badge/NLP-Transformers-FFD21E?style=for-the-badge) ![Tracking](https://img.shields.io/badge/MLOps-MLflow-0194E2?style=for-the-badge&logo=mlflow)
+
 [![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-a855f7?style=for-the-badge)](https://RidhimaGupta4.github.io/Sentiment-NLP-Pipeline/dashboard/)
 [![Model](https://img.shields.io/badge/Model-DistilBERT-orange?style=for-the-badge)](https://huggingface.co/distilbert-base-uncased)
 [![Accuracy](https://img.shields.io/badge/Test%20Accuracy-87.6%25-22c55e?style=for-the-badge)]()
@@ -13,7 +15,7 @@
 
 ## 🔴 Live Dashboard
 
-[![View Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-a855f7?style=for-the-badge&logo=googlechrome&logoColor=white)](https://RidhimaGupta4.github.io/Sentiment-NLP-Pipeline/dashboard/)
+[![View Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-a855f7?style=for-the-badge&logoColor=white)](https://RidhimaGupta4.github.io/Sentiment-NLP-Pipeline/dashboard/)
 
 [![Model on HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Model%20Card-DistilBERT-FFD21E?style=for-the-badge)](https://huggingface.co/distilbert-base-uncased)
 [![Accuracy](https://img.shields.io/badge/Accuracy-87.6%25-22c55e?style=for-the-badge)]()
