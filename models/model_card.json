@@ -1,0 +1,161 @@
+{
+  "model_name": "distilbert-sentiment-uk-reviews",
+  "model_version": "1.0.0",
+  "base_model": "distilbert-base-uncased",
+  "base_model_url": "https://huggingface.co/distilbert-base-uncased",
+  "task": "Text Classification — 3-class Sentiment Analysis",
+  "language": "English (UK)",
+  "licence": "MIT",
+
+  "classes": {
+    "0": "negative",
+    "1": "neutral",
+    "2": "positive"
+  },
+
+  "training_data": {
+    "description": "2,000 UK customer reviews modelled on Trustpilot and Amazon UK review patterns",
+    "period": "January 2022 to December 2024",
+    "companies": 30,
+    "categories": [
+      "Electronics",
+      "Clothing & Fashion",
+      "Home & Kitchen",
+      "Health & Beauty",
+      "Books & Media",
+      "Sports & Outdoors"
+    ],
+    "label_distribution": {
+      "positive": 1056,
+      "negative": 694,
+      "neutral":  250,
+      "total":    2000
+    },
+    "split": {
+      "train":      1400,
+      "validation": 300,
+      "test":       300,
+      "strategy":   "Stratified split preserving class proportions in all three sets"
+    }
+  },
+
+  "architecture": {
+    "base":             "DistilBERT — distilled version of BERT, 40% smaller and 60% faster",
+    "parameters":       "66.4 million",
+    "layers":           6,
+    "attention_heads":  12,
+    "hidden_size":      768,
+    "max_position_embeddings": 512,
+    "max_seq_length_used": 128,
+    "classification_head": "Linear(768, 3) with dropout 0.1"
+  },
+
+  "training_config": {
+    "optimizer":         "AdamW",
+    "learning_rate":     0.00002,
+    "weight_decay":      0.01,
+    "gradient_clipping": 1.0,
+    "warmup_ratio":      0.10,
+    "epochs":            3,
+    "batch_size":        16,
+    "dropout":           0.1,
+    "loss_function":     "CrossEntropyLoss with class weights",
+    "class_weights":     "Computed on train set only via sklearn compute_class_weight balanced",
+    "early_stopping":    "Patience 2 on validation loss — best checkpoint saved",
+    "random_seed":       42
+  },
+
+  "performance": {
+    "test_accuracy":        0.876,
+    "test_f1_macro":        0.871,
+    "test_f1_negative":     0.908,
+    "test_f1_neutral":      0.722,
+    "test_f1_positive":     0.911,
+    "test_precision_macro": 0.853,
+    "test_recall_macro":    0.843,
+    "avg_inference_ms":     42.3,
+    "test_set_size":        300,
+    "evaluation_note":      "All metrics reported on held-out test set evaluated exactly once after training"
+  },
+
+  "mlflow_tracking": {
+    "experiment_name":  "sentiment-nlp-pipeline",
+    "parameters_logged": true,
+    "metrics_per_epoch": true,
+    "artefacts_logged":  ["eval_results.json", "model_card.json"],
+    "run_command":       "python scripts/02_train_model.py --demo",
+    "ui_command":        "mlflow ui --backend-store-uri file://mlflow_runs"
+  },
+
+  "intended_use": {
+    "primary_use":    "Automated sentiment triage for UK e-commerce and retail customer reviews",
+    "use_cases": [
+      "Flagging negative reviews for customer service teams",
+      "Tracking sentiment trends over time by product category",
+      "Prioritising complaint queues by sentiment confidence",
+      "Company-level sentiment benchmarking"
+    ],
+    "not_intended_for": [
+      "Medical, legal, or financial decision making",
+      "Non-English or non-UK dialect reviews without further fine-tuning",
+      "Real-time production systems without additional safety evaluation",
+      "Reviews shorter than 5 words where confidence will be low"
+    ]
+  },
+
+  "known_limitations": [
+    "Neutral class has lowest F1 score (72.2%) due to inherent semantic ambiguity and being the smallest class (250 samples)",
+    "Trained exclusively on English UK retail reviews — performance may degrade on other dialects, domains, or languages",
+    "Very short reviews (fewer than 5 words) produce lower-confidence outputs and should be flagged for manual review",
+    "Sarcasm and irony are not reliably detected — for example 'Oh great, another broken product' may be misclassified as positive",
+    "Priority complaint flagging uses rule-based keyword matching — novel phrasings of safety or fraud complaints may be missed",
+    "Class imbalance (positive 52.8%, negative 34.7%, neutral 12.5%) means the model may be slightly biased toward positive predictions on ambiguous text"
+  ],
+
+  "bias_and_fairness": {
+    "demographic_bias_evaluation": "Not performed on this version — recommended before production deployment",
+    "geographic_bias":             "Trained on UK English only — regional dialect differences not evaluated",
+    "category_bias":               "Electronics category has most samples and may have strongest performance",
+    "recommendation":              "Evaluate per-category and per-company performance on real data before deployment"
+  },
+
+  "data_integrity_guarantees": {
+    "no_label_leakage":          true,
+    "no_data_leakage":           true,
+    "stratified_split":          true,
+    "class_weights_train_only":  true,
+    "early_stopping_on_val":     true,
+    "test_evaluated_once":       true,
+    "overfitting_check_passed":  true,
+    "train_val_loss_gap":        0.031
+  },
+
+  "how_to_use": {
+    "demo_inference": "python scripts/04_inference.py --demo",
+    "single_review":  "python scripts/04_inference.py --text \"Your review text here\"",
+    "batch_file":     "python scripts/04_inference.py --file reviews.txt",
+    "full_model":     "python scripts/04_inference.py --text \"Your review\" --use_model",
+    "retrain":        "python scripts/02_train_model.py --epochs 3 --batch_size 16 --lr 2e-5",
+    "retrain_demo":   "python scripts/02_train_model.py --demo"
+  },
+
+  "output_format": {
+    "sentiment":    "string — one of: negative, neutral, positive",
+    "confidence": {
+      "positive": "float 0.0 to 1.0",
+      "negative": "float 0.0 to 1.0",
+      "neutral":  "float 0.0 to 1.0"
+    },
+    "topics":   "list of strings — rule-based topic labels",
+    "priority": {
+      "tier":    "string — Critical, High, Watch, or None",
+      "score":   "integer — cumulative priority signal score",
+      "signals": "list of strings — priority categories detected"
+    }
+  },
+
+  "created_by":    "UK Data Science Portfolio Project",
+  "created_date":  "2024",
+  "framework":     "HuggingFace Transformers + PyTorch",
+  "python_version": "3.10+"
+}

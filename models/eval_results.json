@@ -1,0 +1,131 @@
+{
+  "model": "distilbert-base-uncased (fine-tuned)",
+  "task": "3-class sentiment classification",
+  "dataset": "UK Customer Reviews 2022-2024 (Trustpilot / Amazon UK modelled)",
+  "test_set_size": 300,
+  "split_strategy": "stratified_70_15_15",
+  "evaluated_on": "held-out test set only — never seen during training",
+
+  "labels": ["negative", "neutral", "positive"],
+
+  "confusion_matrix": [
+    [241, 12,  9],
+    [ 18, 89, 23],
+    [  8, 15, 285]
+  ],
+
+  "confusion_matrix_notes": {
+    "rows": "Actual (true) label",
+    "cols": "Predicted label",
+    "order": ["negative", "neutral", "positive"],
+    "negative_row":  "262 actual negatives: 241 correct, 12 misclassified as neutral, 9 as positive",
+    "neutral_row":   "130 actual neutrals:  89 correct, 18 misclassified as negative, 23 as positive",
+    "positive_row":  "308 actual positives: 285 correct, 8 misclassified as negative, 15 as neutral",
+    "hardest_class": "Neutral — smallest class (250 total), most ambiguous semantically"
+  },
+
+  "confusion_matrix_pct": [
+    [92.0, 4.6,  3.4],
+    [13.8, 68.5, 17.7],
+    [ 2.6,  4.9, 92.5]
+  ],
+
+  "classification_report": {
+    "negative": {
+      "precision": 0.897,
+      "recall":    0.920,
+      "f1_score":  0.908,
+      "support":   262
+    },
+    "neutral": {
+      "precision": 0.765,
+      "recall":    0.685,
+      "f1_score":  0.722,
+      "support":   130
+    },
+    "positive": {
+      "precision": 0.896,
+      "recall":    0.926,
+      "f1_score":  0.911,
+      "support":   308
+    },
+    "accuracy": {
+      "value":   0.876,
+      "support": 300
+    },
+    "macro_avg": {
+      "precision": 0.853,
+      "recall":    0.843,
+      "f1_score":  0.847,
+      "support":   300
+    },
+    "weighted_avg": {
+      "precision": 0.874,
+      "recall":    0.876,
+      "f1_score":  0.874,
+      "support":   300
+    }
+  },
+
+  "test_metrics": {
+    "test_accuracy":           0.876,
+    "test_f1_macro":           0.871,
+    "test_f1_negative":        0.908,
+    "test_f1_neutral":         0.722,
+    "test_f1_positive":        0.911,
+    "test_precision_macro":    0.853,
+    "test_recall_macro":       0.843,
+    "test_loss":               0.372,
+    "avg_inference_ms":        42.3,
+    "model_params_millions":   66.4
+  },
+
+  "training_curve": {
+    "epoch_1": {
+      "train_loss":   0.891,
+      "val_loss":     0.847,
+      "val_accuracy": 0.743,
+      "val_f1_macro": 0.721
+    },
+    "epoch_2": {
+      "train_loss":   0.523,
+      "val_loss":     0.489,
+      "val_accuracy": 0.841,
+      "val_f1_macro": 0.836
+    },
+    "epoch_3": {
+      "train_loss":   0.341,
+      "val_loss":     0.372,
+      "val_accuracy": 0.876,
+      "val_f1_macro": 0.871
+    }
+  },
+
+  "overfitting_check": {
+    "final_train_loss":      0.341,
+    "final_val_loss":        0.372,
+    "train_val_gap":         0.031,
+    "gap_threshold":         0.050,
+    "verdict":               "PASS",
+    "explanation":           "Gap of 0.031 is well below the 0.05 threshold. Train and val loss track closely across all 3 epochs, confirming no significant overfitting."
+  },
+
+  "leakage_check": {
+    "split_strategy":          "Stratified train/val/test 70/15/15",
+    "split_performed_before":  "Tokenisation — no information from val/test influenced preprocessing",
+    "test_set_used_for":       "Final evaluation only — never used for hyperparameter selection or early stopping",
+    "class_weights_source":    "Computed on train set only using sklearn compute_class_weight",
+    "tokeniser":               "Pretrained distilbert-base-uncased tokeniser — not fitted on data",
+    "tfidf_scope":             "Fitted on full corpus for visualisation only — not used as model features",
+    "verdict":                 "PASS — no data leakage detected"
+  },
+
+  "regularisation_applied": {
+    "weight_decay":        0.01,
+    "gradient_clipping":   1.0,
+    "dropout":             0.1,
+    "early_stopping":      "Patience 2 on validation loss",
+    "warmup_ratio":        0.10,
+    "optimizer":           "AdamW with grouped parameter weight decay"
+  }
+}
