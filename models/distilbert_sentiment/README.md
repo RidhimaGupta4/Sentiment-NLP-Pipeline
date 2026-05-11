@@ -74,6 +74,6 @@ git push
 Or upload to HuggingFace Hub:
 ```python
 from huggingface_hub import push_to_hub
-model.push_to_hub("YOUR_USERNAME/distilbert-sentiment-uk-reviews")
-tokenizer.push_to_hub("YOUR_USERNAME/distilbert-sentiment-uk-reviews")
+model.push_to_hub("RidhimaGupta4/distilbert-sentiment-uk-reviews")
+tokenizer.push_to_hub("RidhimaGupta4/distilbert-sentiment-uk-reviews")
 ```
