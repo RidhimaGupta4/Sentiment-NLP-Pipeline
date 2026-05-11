@@ -1,0 +1,8 @@
+artifact_location: file:///home/claude/sentiment-nlp-pipeline/mlflow_runs/811387519654982494
+creation_time: 1778473341593
+experiment_id: '811387519654982494'
+last_update_time: 1778473341593
+lifecycle_stage: active
+name: sentiment-nlp-pipeline
+trace_location: null
+workspace: default
