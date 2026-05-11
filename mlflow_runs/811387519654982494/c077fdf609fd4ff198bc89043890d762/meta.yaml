@@ -1,0 +1,14 @@
+artifact_uri: file:///home/claude/sentiment-nlp-pipeline/mlflow_runs/811387519654982494/c077fdf609fd4ff198bc89043890d762/artifacts
+end_time: 1778473341692
+entry_point_name: ''
+experiment_id: '811387519654982494'
+lifecycle_stage: active
+run_id: c077fdf609fd4ff198bc89043890d762
+run_name: distilbert-demo-20260511-042221
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1778473341671
+status: 3
+tags: []
+user_id: root
