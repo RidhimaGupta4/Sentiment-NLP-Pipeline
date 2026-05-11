@@ -11,6 +11,16 @@
 
 ---
 
+## 🔴 Live Dashboard
+
+[![View Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-a855f7?style=for-the-badge&logo=googlechrome&logoColor=white)](https://RidhimaGupta4.github.io/Sentiment-NLP-Pipeline/dashboard/)
+
+[![Model on HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Model%20Card-DistilBERT-FFD21E?style=for-the-badge)](https://huggingface.co/distilbert-base-uncased)
+[![Accuracy](https://img.shields.io/badge/Accuracy-87.6%25-22c55e?style=for-the-badge)]()
+[![F1 Score](https://img.shields.io/badge/F1%20Macro-87.1%25-3b82f6?style=for-the-badge)]()
+
+---
+
 ## 📌 Project Summary
 
 This project answers a real business question:
