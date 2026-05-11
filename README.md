@@ -26,6 +26,31 @@ It delivers:
 
 ---
 
+## 🔍 Visual Insights
+
+### Sentiment Distribution — 2,000 UK Reviews
+![Sentiment Distribution](outputs/01_sentiment_distribution.png)
+
+### Sentiment by Product Category
+![Sentiment by Category](outputs/02_sentiment_by_category.png)
+
+### Topic Distribution — What Customers Talk About Most
+![Topic Distribution](outputs/03_topic_distribution.png)
+
+### Monthly Sentiment Trend 2022–2024
+![Monthly Trend](outputs/04_monthly_trend.png)
+
+### Priority Complaint Breakdown — Auto-Flagged Reviews
+![Priority Breakdown](outputs/05_priority_breakdown.png)
+
+### Company Sentiment Heatmap — % Positive Reviews
+![Company Heatmap](outputs/06_company_sentiment_heatmap.png)
+
+### DistilBERT Confusion Matrix — Held-Out Test Set
+![Confusion Matrix](outputs/07_confusion_matrix.png)
+
+---
+
 ## 🗂️ Repository Structure
 
 ```
