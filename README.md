@@ -54,33 +54,47 @@ It delivers:
 ## 🗂️ Repository Structure
 
 ```
-Sentiment-NLP-Pipeline/
+sentiment-nlp-pipeline/
 │
 ├── scripts/
 │   ├── 01_generate_data.py        # Generates 2,000 UK review records (ONS/Trustpilot-aligned)
 │   ├── 02_train_model.py          # DistilBERT fine-tuning with MLflow tracking
 │   ├── 03_eda_charts.py           # EDA + 7 matplotlib charts
 │   ├── 04_inference.py            # Production inference pipeline (single / batch)
-│   └── 05_analysis_queries.sql    # 10 SQL queries (DuckDB / SQLite / PostgreSQL)
+│   ├── 05_analysis_queries.sql    # 10 SQL queries (DuckDB / SQLite / PostgreSQL)
+│   └── PLACEHOLDER.md             # Folder guide
 │
 ├── data/
+│   ├── PLACEHOLDER.md             # Folder guide
 │   └── processed/
 │       ├── reviews.csv            # 2,000 labelled reviews — ground truth only, no leakage
 │       ├── company_summary.csv    # Aggregated metrics per company
 │       ├── monthly_trend.csv      # Monthly sentiment trends 2022–2024
 │       ├── topic_distribution.csv # Topic counts and percentages
 │       ├── priority_complaints.csv# Flagged priority reviews
-│       └── tfidf_keywords.json    # TF-IDF topic keywords (visualisation only)
+│       ├── tfidf_keywords.json    # TF-IDF topic keywords (visualisation only)
+│       └── PLACEHOLDER.md         # Folder guide
 │
 ├── models/
-│   ├── distilbert_sentiment/      # Saved model weights (after training)
+│   ├── distilbert_sentiment/      # HuggingFace model folder
+│   │   ├── config.json            # Model architecture — 3-class head, id2label, label2id
+│   │   ├── tokenizer_config.json  # Tokeniser settings — lowercase, max 128 tokens
+│   │   ├── special_tokens_map.json# CLS, SEP, PAD, MASK, UNK token definitions
+│   │   ├── training_args.json     # Full training config, splits, final metrics
+│   │   ├── pytorch_model.bin      # Model weights — generated after full training
+│   │   └── PLACEHOLDER.md         # Folder guide + how to generate weights
 │   ├── eval_results.json          # Confusion matrix + classification report
-│   └── model_card.json            # Model metadata and limitations
+│   ├── model_card.json            # Model metadata, limitations, intended use
+│   ├── training_results.json      # Training run summary
+│   └── PLACEHOLDER.md             # Folder guide
 │
 ├── mlflow_runs/                   # MLflow experiment artefacts (auto-generated)
+|   ├── 811387519654982494         # Auto-generated numeric ID for the experiment
+│   └── PLACEHOLDER.md             # Folder guide + how to view UI
 │
 ├── dashboard/
-│   └── index.html                 # Fully self-contained interactive dashboard
+│   ├── index.html                 # Fully self-contained interactive dashboard
+│   └── PLACEHOLDER.md             # Folder guide + how to deploy
 │
 ├── outputs/
 │   ├── 01_sentiment_distribution.png
@@ -89,11 +103,12 @@ Sentiment-NLP-Pipeline/
 │   ├── 04_monthly_trend.png
 │   ├── 05_priority_breakdown.png
 │   ├── 06_company_sentiment_heatmap.png
-│   └── 07_confusion_matrix.png
+│   ├── 07_confusion_matrix.png
+│   └── PLACEHOLDER.md             # Folder guide + how to regenerate charts
 │
-├── requirements.txt
-├── .gitignore
-└── README.md
+├── requirements.txt               # All pip dependencies
+├── .gitignore                     # Standard Python ignores
+└── README.md                      # Full project documentation with chart gallery
 ```
 
 ---
