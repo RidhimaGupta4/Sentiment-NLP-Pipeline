@@ -137,29 +137,46 @@ Open `dashboard/index.html` directly in any browser — **no server or installat
 
 ---
 
-## 🤖 Model Architecture
+## 🤖 Model Architecture & Validation
 
-```
-Base model  : distilbert-base-uncased (HuggingFace)
-Task        : Sequence classification — 3 classes
-Parameters  : 66.4M
-Max length  : 128 tokens
-```
+### 🏗️ Model Specification
+Utilizes **Transfer Learning** via the DistilBERT architecture to achieve high-performance sentiment extraction with a significantly lower computational footprint than standard BERT.
 
-### Training Configuration
+| Component | Specification |
+| :--- | :--- |
+| **Base Model** | `distilbert-base-uncased` (HuggingFace) |
+| **Parameters** | 66.4 Million (Distilled for efficiency) |
+| **Task** | Sequence Classification (3 classes) |
+| **Max Length** | 128 Tokens (Optimized for UK retail reviews) |
+| **Optimizer** | AdamW (Learning Rate: 2e-5) |
+| **Regularization** | Dropout (0.1) + Weight Decay (0.01) |
 
-| Parameter | Value |
-|---|---|
-| Optimizer | AdamW |
-| Learning rate | 2e-5 |
-| Weight decay (L2) | 0.01 |
-| Gradient clipping | 1.0 |
-| Dropout | 0.1 (DistilBERT default) |
-| Warmup ratio | 10% |
-| Epochs | 3 |
-| Batch size | 16 |
-| Early stopping | Patience 2 on val loss |
-| Class weights | Computed on train set only |
+> **💡 Production Note on Distillation:** By selecting **DistilBERT**, this pipeline achieves ~97% of the performance of a BERT-base model while being 40% smaller and 60% faster. This demonstrates a "Production-First" mindset, prioritizing low-latency inference (~42ms) and reduced cloud compute costs without sacrificing significant accuracy.
+
+---
+
+### 🛡️ MLOps & ML Hygiene
+To ensure the **87.6% Test Accuracy** is a reliable indicator of real-world performance:
+
+* **Stratified Splits**: Utilized a 70/15/15 stratified split to maintain consistent class distribution across all folds.
+* **Leakage Prevention**: All preprocessing, including tokenization and class-weight calculations, was performed strictly on the training fold.
+* **Experiment Tracking**: Full **MLflow** integration logs every training run, capturing loss curves, hyperparameters, and versioned artifacts.
+* **Optimal Fitting**: Monitored the gap between training and validation loss (final gap: **0.031**) to confirm the model generalizes effectively.
+
+---
+
+### ⚙️ Training Configuration
+
+| Parameter | Value | Role |
+| :--- | :--- | :--- |
+| **Learning Rate** | `2e-5` | Fine-tuning "sweet spot" for Transformers |
+| **Warmup Ratio** | `10%` | Prevents aggressive gradient updates at start |
+| **Gradient Clipping**| `1.0` | Prevents exploding gradients in deep layers |
+| **Dropout** | `0.1` | DistilBERT default for hidden layer regularization |
+| **Epochs** | `3` | Converged early due to pre-trained weights |
+| **Batch Size** | `16` | Balanced memory usage and gradient stability |
+| **Early Stopping** | `Patience 2` | Monitors `val_loss` to prevent over-training |
+| **Class Weights** | `Balanced` | Computed on train set to handle class imbalance |
 
 ---
 
@@ -179,6 +196,24 @@ This project explicitly guards against the most common ML mistakes:
 | TF-IDF scope | ✅ PASS | Used for visualisation only, not model features |
 | Overfitting check | ✅ PASS | Train/val loss gap = 0.031 (threshold: < 0.05) |
 | Reproducibility | ✅ PASS | Fixed random seed + MLflow tracking |
+
+---
+
+---
+
+## 🤖 Model Architecture & Validation
+
+### Training Configuration
+- **Base Model**: `distilbert-base-uncased` (66.4M Parameters)
+- **Task**: Sequence Classification (3 classes)
+- **Optimizer**: AdamW (LR: 2e-5)
+- **Regularization**: Weight Decay (0.01) + Dropout (0.1)
+
+### 🛡️ MLOps & ML Hygiene
+To ensure the **87.6% Test Accuracy** is a reliable indicator of production performance:
+* **Stratified Splits**: 70/15/15 stratified split to maintain class balance across all sets.
+* **Leakage Prevention**: Tokenization and class-weight computations were performed strictly on training data.
+* **Tracking**: MLflow was used to log 3 epochs of training loss vs. validation loss to ensure optimal fitting.
 
 ---
 
