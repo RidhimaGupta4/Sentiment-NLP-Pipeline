@@ -22,6 +22,36 @@
 [![F1 Score](https://img.shields.io/badge/F1%20Macro-87.1%25-3b82f6?style=for-the-badge)]()
 
 ---
+# 🧠 Customer Sentiment NLP Pipeline — UK Reviews 2022–2024
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)
+![Model](https://img.shields.io/badge/Model-DistilBERT--Base-orange?style=flat-square&logo=huggingface&logoColor=white)
+![NLP](https://img.shields.io/badge/NLP-Transformers-FFD21E?style=flat-square)
+![Tracking](https://img.shields.io/badge/MLOps-MLflow-0194E2?style=flat-square&logo=mlflow&logoColor=white)
+
+> Fine-tuned **DistilBERT** Transformer for 3-class sentiment classification on UK retail feedback.  
+> Automates topic extraction and priority triage (safety · legal · fraud) with an 87.6% accuracy rate.
+
+## 🔴 Live Dashboard
+
+[![View Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-a855f7?style=for-the-badge&logo=googlechrome&logoColor=white)](https://RidhimaGupta4.github.io/Sentiment-NLP-Pipeline/dashboard/)
+
+---
+
+## 📌 Project Summary
+
+This project solves a critical operational challenge for UK e-commerce:
+> **"Which customer reviews need immediate human triage, and what specific topics are driving brand detraction?"**
+
+It delivers a production-grade NLP pipeline covering:
+- **Transformer Fine-Tuning**: DistilBERT optimized for 3-class sentiment (Positive / Neutral / Negative).
+- **Rule-Based Triage**: A scoring engine to auto-flag Critical safety, legal, or fraud signals.
+- **Topic Extraction**: Keyword-based classification across 8 core retail categories.
+- **Experiment Tracking**: Full MLflow integration for logging metrics, parameters, and artifacts.
+- **Interactive Dashboard**: A zero-setup browser interface for real-time model inference.
+
+---
+
+## 🗂️ Repository Structure
 
 ## 📌 Project Summary
 
