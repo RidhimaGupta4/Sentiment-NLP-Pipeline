@@ -278,12 +278,12 @@ Labels are assigned from the text bank used to generate each review — the text
 
 Scored **entirely independently** of the sentiment model — no leakage risk.
 
-'''
+```
 Score = (signal categories matched × 4)
 + (predicted negative AND confidence > 0.90  →  +3)
 + (confidence_neg > 0.95                     →  +2)
 + (ALL-CAPS words ≥ 2                         →  +1)
-'''
+```
 
 | Tier | Score | Examples |
 |---|---|---|
