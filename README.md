@@ -1,35 +1,11 @@
 # 🧠 Customer Sentiment NLP Pipeline — UK Reviews 2022–2024
-
-> Fine-tuned DistilBERT for 3-class sentiment classification on UK customer reviews.  
-> Extracts topics, auto-flags priority complaints (safety · legal · fraud), and ships a fully interactive dashboard.
-
-![Model](https://img.shields.io/badge/Model-DistilBERT--Base-orange?style=for-the-badge&logo=huggingface) ![NLP](https://img.shields.io/badge/NLP-Transformers-FFD21E?style=for-the-badge) ![Tracking](https://img.shields.io/badge/MLOps-MLflow-0194E2?style=for-the-badge&logo=mlflow)
-
-[![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-a855f7?style=for-the-badge)](https://RidhimaGupta4.github.io/Sentiment-NLP-Pipeline/dashboard/)
-[![Model](https://img.shields.io/badge/Model-DistilBERT-orange?style=for-the-badge)](https://huggingface.co/distilbert-base-uncased)
-[![Accuracy](https://img.shields.io/badge/Test%20Accuracy-87.6%25-22c55e?style=for-the-badge)]()
-[![F1 Macro](https://img.shields.io/badge/F1%20Macro-87.1%25-3b82f6?style=for-the-badge)]()
-[![Python](https://img.shields.io/badge/Python-3.10+-yellow?style=for-the-badge)]()
-
----
-
-## 🔴 Live Dashboard
-
-[![View Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-a855f7?style=for-the-badge&logoColor=white)](https://RidhimaGupta4.github.io/Sentiment-NLP-Pipeline/dashboard/)
-
-[![Model on HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Model%20Card-DistilBERT-FFD21E?style=for-the-badge)](https://huggingface.co/distilbert-base-uncased)
-[![Accuracy](https://img.shields.io/badge/Accuracy-87.6%25-22c55e?style=for-the-badge)]()
-[![F1 Score](https://img.shields.io/badge/F1%20Macro-87.1%25-3b82f6?style=for-the-badge)]()
-
----
-# 🧠 Customer Sentiment NLP Pipeline — UK Reviews 2022–2024
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)
 ![Model](https://img.shields.io/badge/Model-DistilBERT--Base-orange?style=flat-square&logo=huggingface&logoColor=white)
 ![NLP](https://img.shields.io/badge/NLP-Transformers-FFD21E?style=flat-square)
 ![Tracking](https://img.shields.io/badge/MLOps-MLflow-0194E2?style=flat-square&logo=mlflow&logoColor=white)
 
 > Fine-tuned **DistilBERT** Transformer for 3-class sentiment classification on UK retail feedback.  
-> Automates topic extraction and priority triage (safety · legal · fraud) with an 87.6% accuracy rate.
+> Automates topic extraction, auto-flags priority triage (safety · legal · fraud) with an 87.6% accuracy rate and ships a fully interactive dashboard.
 
 ## 🔴 Live Dashboard
 
@@ -39,33 +15,17 @@
 
 ## 📌 Project Summary
 
-This project solves a critical operational challenge for UK e-commerce:
-> **"Which customer reviews need immediate human triage, and what specific topics are driving brand detraction?"**
+This project solves a critical operational challenge faced by UK e-commerce and retail businesses:
+
+> **"Which customer reviews need immediate human attention and what specific products, companies, and topics are driving negative sentiment and brand detraction?"**
 
 It delivers a production-grade NLP pipeline covering:
-- **Transformer Fine-Tuning**: DistilBERT optimized for 3-class sentiment (Positive / Neutral / Negative).
-- **Rule-Based Triage**: A scoring engine to auto-flag Critical safety, legal, or fraud signals.
-- **Topic Extraction**: Keyword-based classification across 8 core retail categories.
-- **Experiment Tracking**: Full MLflow integration for logging metrics, parameters, and artifacts.
-- **Interactive Dashboard**: A zero-setup browser interface for real-time model inference.
 
----
-
-## 🗂️ Repository Structure
-
-## 📌 Project Summary
-
-This project answers a real business question:
-
-> **"Which customer reviews need immediate human attention and which products, companies, and topics are driving negative sentiment?"**
-
-It delivers:
-- **DistilBERT fine-tuned** on 2,000 UK customer reviews (3-class: positive / neutral / negative)
-- **Rule-based topic extraction** across 9 categories (delivery, quality, returns, safety, etc.)
-- **Priority complaint auto-flagging** with tiered scoring (Critical / High / Watch / None)
-- **MLflow experiment tracking** for full reproducibility
-- **Interactive dashboard** — open `dashboard/index.html` in any browser, zero setup
-
+- **DistilBERT Fine-Tuned** on 2,000 UK customer reviews for 3-class sentiment classification (Positive / Neutral / Negative) — test accuracy 87.6%, F1 macro 87.1%
+- **Priority Complaint Triage** — a multi-signal scoring engine that auto-flags Critical safety hazards, legal threats, fraud, and health risks with zero human intervention
+- **Topic Extraction** — rule-based keyword classification across 9 core retail categories including delivery, quality, returns, and safety
+- **MLflow Experiment Tracking** — full logging of parameters, per-epoch metrics, and artefacts for complete reproducibility
+- **Interactive Dashboard** — a zero-setup browser interface with live model inference, priority complaint queue, and company sentiment benchmarking
 ---
 
 ## 🔍 Visual Insights
