@@ -180,40 +180,22 @@ To ensure the **87.6% Test Accuracy** is a reliable indicator of real-world perf
 
 ---
 
-## Data Integrity & ML Best Practices
+## ⚡ Data Integrity & ML Hygiene
 
-This project explicitly guards against the most common ML mistakes:
+This project applies strict safeguards against the most common ML mistakes — ensuring results are robust, reproducible, and production-ready.
 
-| Check | Status | Detail |
-|---|---|---|
-| Train/val/test split | ✅ PASS | Stratified 70/15/15 — split before tokenisation |
-| No label leakage | ✅ PASS | Labels from text bank only, never from confidence scores |
-| No data leakage | ✅ PASS | Test set never seen during training or hyperparameter selection |
-| Class weights | ✅ PASS | Computed on train set only, not full dataset |
-| Early stopping | ✅ PASS | Monitors val loss — test loss never observed until final eval |
-| Regularisation | ✅ PASS | L2 via weight decay + gradient clipping + dropout |
-| Tokeniser | ✅ PASS | Pretrained — never fitted on data (no leakage risk) |
-| TF-IDF scope | ✅ PASS | Used for visualisation only, not model features |
-| Overfitting check | ✅ PASS | Train/val loss gap = 0.031 (threshold: < 0.05) |
-| Reproducibility | ✅ PASS | Fixed random seed + MLflow tracking |
-
----
-
----
-
-## 🤖 Model Architecture & Validation
-
-### Training Configuration
-- **Base Model**: `distilbert-base-uncased` (66.4M Parameters)
-- **Task**: Sequence Classification (3 classes)
-- **Optimizer**: AdamW (LR: 2e-5)
-- **Regularization**: Weight Decay (0.01) + Dropout (0.1)
-
-### 🛡️ MLOps & ML Hygiene
-To ensure the **87.6% Test Accuracy** is a reliable indicator of production performance:
-* **Stratified Splits**: 70/15/15 stratified split to maintain class balance across all sets.
-* **Leakage Prevention**: Tokenization and class-weight computations were performed strictly on training data.
-* **Tracking**: MLflow was used to log 3 epochs of training loss vs. validation loss to ensure optimal fitting.
+| Audit Check | Status | Technical Detail |
+| :--- | :---: | :--- |
+| **Stratified Split** | VALIDATED | 70/15/15 split preserves class distribution across all three sets |
+| **Pre-Tokenisation Split** | VALIDATED | Data split strictly before tokenisation — no vocabulary leakage |
+| **Test Set Isolation** | VALIDATED | Test set entirely unseen during training and hyperparameter selection |
+| **Class Weights** | VALIDATED | Computed on train fold only — never on full dataset |
+| **Early Stopping** | VALIDATED | Monitors `val_loss` only — test set never observed until final evaluation |
+| **Regularisation** | VALIDATED | L2 weight decay (0.01) + gradient clipping (1.0) + dropout (0.1) |
+| **Tokeniser Integrity** | VALIDATED | Pretrained tokeniser used directly — never fitted on local data |
+| **TF-IDF Scope** | VALIDATED | Keyword extraction for visualisation only — not used as model features |
+| **Overfitting Check** | VALIDATED | Train/val loss gap = **0.031** — well within the safe threshold of 0.05 |
+| **Reproducibility** | VALIDATED | Fixed random seed (42) + full MLflow experiment tracking on every run |
 
 ---
 
