@@ -1,6 +1,6 @@
 # 🧠 Customer Sentiment NLP Pipeline — UK Reviews 2022–2024
 ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)
-![Model](https://img.shields.io/badge/Model-DistilBERT--Base-orange?style=flat-square&logo=huggingface&logoColor=white)
+![Model](https://img.shields.io/badge/Model-DistilBERT--Base-orange?style=flat-square&logoColor=white)
 ![NLP](https://img.shields.io/badge/NLP-Transformers-FFD21E?style=flat-square)
 ![Tracking](https://img.shields.io/badge/MLOps-MLflow-0194E2?style=flat-square&logo=mlflow&logoColor=white)
 
