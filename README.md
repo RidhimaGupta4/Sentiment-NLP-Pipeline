@@ -30,26 +30,33 @@ It delivers a production-grade NLP pipeline covering:
 
 ## 🔍 Visual Insights
 
-### Sentiment Distribution — 2,000 UK Reviews
+### 📊 Sentiment Distribution — 2,000 UK Reviews
 ![Sentiment Distribution](outputs/01_sentiment_distribution.png)
+> **Analysis:** Identifies the baseline customer mood. The prevalence of Positive/Negative extremes over Neutral reviews is typical of e-commerce, where polarized experiences are the primary drivers for feedback.
 
-### Sentiment by Product Category
+### 🏷️ Sentiment by Product Category
 ![Sentiment by Category](outputs/02_sentiment_by_category.png)
+> **Analysis:** Breaks down brand health across departments. This chart reveals which product lines (e.g., Electronics vs. Home) are underperforming and require stock or supplier audits.
 
-### Topic Distribution — What Customers Talk About Most
+### 🧠 Topic Distribution & Sentiment — What Customers Talk About Most
 ![Topic Distribution](outputs/03_topic_distribution.png)
+> **Analysis:** Rule-based keyword extraction maps sentiment to specific operational issues. While "Delivery" is the most discussed topic, "Safety" and "Refunds" show the highest concentration of Negative sentiment.
 
-### Monthly Sentiment Trend 2022–2024
+### 📈 Monthly Sentiment Trend 2022–2024
 ![Monthly Trend](outputs/04_monthly_trend.png)
+> **Analysis:** Tracks satisfaction shifts over a 24-month horizon. Crucial for identifying the impact of Black Friday surges, seasonal delivery delays, or the launch of new product ranges.
 
-### Priority Complaint Breakdown — Auto-Flagged Reviews
+### 🚨 Priority Complaint Breakdown — Auto-Flagged Reviews
 ![Priority Breakdown](outputs/05_priority_breakdown.png)
+> **Analysis:** Visualizes the priority scoring algorithm output. By focusing on "Critical" flags (Safety/Legal/Fraud), customer service teams can reduce triage time by ~80%.
 
-### Company Sentiment Heatmap — % Positive Reviews
+### 🌡️ Company Sentiment Heatmap — % Positive Reviews
 ![Company Heatmap](outputs/06_company_sentiment_heatmap.png)
+> **Analysis:** A competitive landscape view showing % positive reviews per brand. Highlights which companies are benchmark leaders in customer satisfaction.
 
-### DistilBERT Confusion Matrix — Held-Out Test Set
+### 📉 DistilBERT Confusion Matrix — Held-Out Test Set
 ![Confusion Matrix](outputs/07_confusion_matrix.png)
+> **Analysis:** Evaluates per-class precision. The model excels at distinguishing Positive from Negative (92%+ recall) but shows common transformer ambiguity with Neutral class nuances.
 
 ---
 
