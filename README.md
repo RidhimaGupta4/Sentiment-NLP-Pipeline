@@ -9,7 +9,7 @@
 
 ## 🔴 Live Dashboard
 
-[![View Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-a855f7?style=for-the-badge&logo=googlechrome&logoColor=white)](https://RidhimaGupta4.github.io/Sentiment-NLP-Pipeline/dashboard/)
+[![View Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-View%20Now-a855f7?style=for-the-badge&logoColor=white)](https://RidhimaGupta4.github.io/Sentiment-NLP-Pipeline/dashboard/)
 
 ---
 
