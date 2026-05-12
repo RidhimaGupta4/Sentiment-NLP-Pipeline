@@ -245,6 +245,73 @@ Rule-based keyword matching across 9 topics — entirely independent of the sent
 | safety | dangerous, fire, hazard, injury, recall |
 | packaging | packaging, box, wrapped, damaged |
 
+## 📐 Methodology
+
+### Priority Complaint Scoring
+$$Score = (N_{signals} \times 4) + [S_{neg} \cdot C > 0.90 \\to 3] + [C_{neg} > 0.95 \\to 2] + [W_{caps} \\ge 2 \\to 1]$$
+
+> *Where $N$ is signals matched (Safety/Fraud), $S_{neg}$ is negative prediction, $C$ is confidence, and $W_{caps}$ is uppercase word count.*
+
+### Topic Signals
+- **Delivery**: arrived, shipping, courier, tracking, late
+- **Customer Service**: service, support, response, ignored
+- **Safety**: dangerous, fire, hazard, injury, recall
+- **Quality**: broken, flimsy, faulty, quality
+
+---
+## 📐 Methodology
+
+### Sentiment Labels
+
+Labels are assigned from the text bank used to generate each review — the text content IS the ground truth. Confidence scores are computed post-training and are never used to create or modify labels.
+
+| Label | Star Rating | Source |
+|---|---|---|
+| Positive | 4 – 5 ⭐ | Positive review templates |
+| Negative | 1 – 2 ⭐ | Negative review templates |
+| Neutral | 3 ⭐ | Neutral review templates |
+| Priority | 1 ⭐ | Safety / legal / fraud complaint templates |
+
+---
+
+### Priority Complaint Scoring
+
+Scored **entirely independently** of the sentiment model — no leakage risk.
+
+'''
+Score = (signal categories matched × 4)
++ (predicted negative AND confidence > 0.90  →  +3)
++ (confidence_neg > 0.95                     →  +2)
++ (ALL-CAPS words ≥ 2                         →  +1)
+'''
+
+| Tier | Score | Examples |
+|---|---|---|
+| 🔴 Critical | ≥ 10 | Fire / injury / data breach / child safety |
+| 🟠 High | ≥ 6 | Legal threat / fraud / discrimination |
+| 🟡 Watch | ≥ 2 | Moderate signals present |
+| 🟢 None | 0 | No priority signals detected |
+
+**Signal categories detected:** `safety_hazard` · `health_risk` · `legal_threat` · `fraud_scam` · `data_privacy` · `child_safety` · `discrimination`
+
+---
+
+### Topic Extraction
+
+Rule-based keyword matching across 9 topics — **entirely independent of the sentiment model.**
+
+| Topic | Key signals |
+|---|---|
+| 🚚 delivery | delivery, arrived, shipping, courier, tracking, late, delayed |
+| 🎧 customer_service | service, support, response, ignored, useless, staff |
+| 🔄 returns_refunds | return, refund, exchange, dispute, chargeback, rejected |
+| ⭐ quality | quality, broke, broken, flimsy, faulty, fell apart |
+| 🖼️ product_accuracy | described, advertised, misleading, different, nothing like |
+| 💷 price_value | price, value, overpriced, bargain, worth, expensive |
+| ⚠️ safety | dangerous, fire, hazard, injury, recall, hospital |
+| 📦 packaging | packaging, box, wrapped, damaged, crushed, protected |
+| 🔖 general | no keywords matched |
+
 ---
 
 ## 🏆 Model Results
