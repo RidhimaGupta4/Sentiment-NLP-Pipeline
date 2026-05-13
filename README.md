@@ -255,20 +255,25 @@ Rule-based keyword matching across 9 topics — **entirely independent of the se
 
 ## 🏆 Model Results
 
-### Test Set Performance (held-out, evaluated once)
+> All metrics reported on the **held-out test set only** — evaluated exactly once after training completed.
 
-| Metric | Score |
-|---|---|
-| Accuracy | **87.6%** |
-| F1 Macro | **87.1%** |
-| F1 Positive | 91.1% |
-| F1 Negative | 90.8% |
-| F1 Neutral | 72.2% ← lowest (fewest samples, most ambiguous) |
-| Precision Macro | 85.3% |
-| Recall Macro | 87.4% |
-| Avg Inference | ~42ms |
+### Test Set Performance
 
-### Confusion Matrix (test set)
+| Metric | Score | Interpretation |
+|:---|:---:|:---|
+| **Accuracy** | **87.6%** | Overall correct classifications across all 3 classes |
+| **F1 Macro** | **87.1%** | Balanced performance — equally weights all 3 classes |
+| **F1 Positive** | 91.1% | Strongest class — largest and least ambiguous |
+| **F1 Negative** | 90.8% | Strong — negative language is highly distinctive |
+| **F1 Neutral** | 72.2% | Lowest — smallest class (250 samples), inherently ambiguous |
+| **Precision Macro** | 85.3% | When model predicts a class, it is correct 85.3% of the time |
+| **Recall Macro** | 87.4% | Model catches 87.4% of actual instances per class |
+| **Inference Speed** | ~42ms | Suitable for real-time API and high-volume batch processing |
+| **Train / Val Gap** | 0.031 | PASS — well below 0.05 threshold, no overfitting |
+
+---
+
+### Confusion Matrix — Test Set
 
 ```
               Predicted
@@ -278,15 +283,43 @@ Actual Neg  [ 241    12      9 ]   ← 92.0% recall
        Pos  [   8    15    285 ]   ← 92.5% recall
 ```
 
+Neutral is the hardest class for two reasons: it has the fewest training samples (250 total) and it sits semantically between positive and negative, making it genuinely ambiguous even for human annotators.
+
+---
+
 ### Training Curve
 
-```
-Epoch 1: train_loss=0.891  val_loss=0.847  val_acc=74.3%
-Epoch 2: train_loss=0.523  val_loss=0.489  val_acc=84.1%
-Epoch 3: train_loss=0.341  val_loss=0.372  val_acc=87.6%  ← best
-                                           ↑
-                         Train/val gap = 0.031 — no overfitting
-```
+| Epoch | Train Loss | Val Loss | Val Accuracy | Val F1 |
+|:---:|:---:|:---:|:---:|:---:|
+| 1 | 0.891 | 0.847 | 74.3% | 72.1% |
+| 2 | 0.523 | 0.489 | 84.1% | 83.9% |
+| **3** | **0.341** | **0.372** | **87.6%** | **87.1%** |
+
+Train/val loss gap at epoch 3 = **0.031** — the two curves track closely throughout, confirming the model generalises well and has not memorised the training data.
+
+---
+
+### ⚠️ Known Limitations
+
+| Limitation | Detail |
+|:---|:---|
+| **Neutral class** | F1 of 72.2% — class is small and semantically ambiguous. Short 3-star reviews are hard to classify reliably. |
+| **Sarcasm** | DistilBERT occasionally misclassifies sarcastic negatives as positive (e.g. *"Oh great, another broken delivery"*) |
+| **UK slang** | Tokeniser is `distilbert-base-uncased` (US-trained). Heavy regional UK slang or abbreviations may reduce confidence |
+| **Short reviews** | Reviews under 5 words produce lower-confidence outputs and should be flagged for manual review |
+| **Domain shift** | Model is trained on UK retail reviews only — performance will degrade on other domains without fine-tuning |
+
+---
+
+### ⚖️ Data Ethics & Privacy
+
+| Area | Detail |
+|:---|:---|
+| **Synthetic data** | Dataset is synthetic but calibrated to real Trustpilot and Amazon UK review distributions to ensure realistic sentiment patterns |
+| **Anonymisation** | All reviews are fully de-identified — no PII (names, addresses, account details) — simulating a GDPR-compliant NLP environment |
+| **Class imbalance** | Class weights computed on the train set only and applied to the loss function — ensures the model does not ignore minority classes |
+| **Bias evaluation** | Per-demographic bias evaluation not performed on this version — recommended before any production deployment |
+| **Intended use** | Sentiment triage for UK e-commerce reviews only — not suitable for medical, legal, or financial decision making |
 
 ---
 
