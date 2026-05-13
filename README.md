@@ -419,6 +419,20 @@ print(con.execute(\"SELECT true_sentiment, COUNT(*) FROM reviews GROUP BY 1 ORDE
 | Chart.js 4.4 | Interactive dashboard charts |
 | DuckDB / SQLite | SQL analysis |
 
+## 🧰 Tech Stack
+
+| Tool | Badge | Role | Application |
+| :--- | :--- | :--- | :--- |
+| **Python** | ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white) | Pipeline Language | Core engineering and inference logic |
+| **HuggingFace** | ![HF](https://img.shields.io/badge/%F0%9F%A4%97_Transformers-NLP-FFD21E?style=flat-square) | Core Model | DistilBERT architecture & Tokenization |
+| **PyTorch** | ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white) | Deep Learning | Model fine-tuning & Tensor operations |
+| **NumPy** | ![NumPy](https://img.shields.io/badge/NumPy-Data_Math-013243?style=flat-square&logo=numpy&logoColor=white) | Vectorization | Mathematical operations for priority scoring |
+| **MLflow** | ![MLflow](https://img.shields.io/badge/MLflow-MLOps-0194E2?style=flat-square&logo=mlflow&logoColor=white) | Experiment Tracking | Parameter logging & Artifact versioning |
+| **Scikit-Learn** | ![SKLearn](https://img.shields.io/badge/Scikit--Learn-Validation-F7931E?style=flat-square&logo=scikit-learn&logoColor=white) | Model Evaluation | Stratified splitting & F1-score metrics |
+| **DuckDB** | ![DuckDB](https://img.shields.io/badge/DuckDB-SQL-FFF000?style=flat-square&logo=duckdb&logoColor=black) | Analytics | 10+ SQL queries for sentiment correlation |
+| **Pandas** | ![Pandas](https://img.shields.io/badge/Pandas-Data-150458?style=flat-square&logo=pandas&logoColor=white) | Data Engineering | Cleaning and aggregating 2,000+ reviews |
+| **Chart.js** | ![Chart.js](https://img.shields.io/badge/Chart.js-Dashboard-FF6384?style=flat-square&logo=chartdotjs&logoColor=white) | Visualization | Interactive dashboard and live inference UI |
+
 ---
 
 ## 💼 Skills Demonstrated
