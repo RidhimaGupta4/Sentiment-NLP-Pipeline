@@ -455,8 +455,8 @@ Built as a UK Data Scientist / NLP Engineer portfolio project.
 
 Explore other end-to-end data science and analytics solutions in my portfolio:
 
-* **[🏠 UK Property Price Predictor](https://github.com/RidhimaGupta4/UK-Property-Price-Predictor)** — High-accuracy machine learning pipeline for real estate valuation and regional market forecasting[cite: 1].
-* **[🏥 NHS A&E Wait Time Analysis](https://github.com/RidhimaGupta4/NHS-AE-Wait-Time-Analysis)** — Operational healthcare analytics and trend forecasting using official NHS digital datasets[cite: 1].
-* **[🇬🇧 UK Cost-of-Living Dashboard](https://github.com/RidhimaGupta4/UK-Cost-of-Living)** — Regional economic data storytelling focused on affordability, wage growth, and housing[cite: 1].
+* **[🏠 UK Property Price Predictor](https://github.com/RidhimaGupta4/UK-Property-Price-Predictor)** — High-accuracy machine learning pipeline for real estate valuation and regional market forecasting.
+* **[🏥 NHS A&E Wait Time Analysis](https://github.com/RidhimaGupta4/NHS-AE-Wait-Time-Analysis)** — Operational healthcare analytics and trend forecasting using official NHS digital datasets.
+* **[🇬🇧 UK Cost-of-Living Dashboard](https://github.com/RidhimaGupta4/UK-Cost-of-Living)** — Regional economic data storytelling focused on affordability, wage growth, and housing.
 
 ---
