@@ -407,20 +407,6 @@ print(con.execute(\"SELECT true_sentiment, COUNT(*) FROM reviews GROUP BY 1 ORDE
 
 ## 🧰 Tech Stack
 
-| Tool | Role |
-|---|---|
-| Python 3.10+ | Pipeline language |
-| HuggingFace Transformers | DistilBERT model and tokeniser |
-| PyTorch | Training loop and inference |
-| scikit-learn | Stratified split, class weights, metrics |
-| MLflow | Experiment tracking, parameter logging, artefacts |
-| pandas + numpy | Data manipulation |
-| matplotlib | Static chart generation |
-| Chart.js 4.4 | Interactive dashboard charts |
-| DuckDB / SQLite | SQL analysis |
-
-## 🧰 Tech Stack
-
 | Tool | Badge | Role | Application |
 | :--- | :--- | :--- | :--- |
 | **Python** | ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white) | Pipeline Language | Core engineering and inference logic |
@@ -462,3 +448,15 @@ Built as a UK Data Scientist / NLP Engineer portfolio project.
 **Connect:** [LinkedIn](https://www.linkedin.com/in/ridhimagupta1623/) · [GitHub](https://github.com/RidhimaGupta4) 
 
 > If this project helped you, please ⭐ star the repo — it helps others find it.
+
+---
+
+## 📁 Explore More Projects
+
+Explore other end-to-end data science and analytics solutions in my portfolio:
+
+* **[🏠 UK Property Price Predictor](https://github.com/RidhimaGupta4/UK-Property-Price-Predictor)** — High-accuracy machine learning pipeline for real estate valuation and regional market forecasting[cite: 1].
+* **[🏥 NHS A&E Wait Time Analysis](https://github.com/RidhimaGupta4/NHS-AE-Wait-Time-Analysis)** — Operational healthcare analytics and trend forecasting using official NHS digital datasets[cite: 1].
+* **[🇬🇧 UK Cost-of-Living Dashboard](https://github.com/RidhimaGupta4/UK-Cost-of-Living)** — Regional economic data storytelling focused on affordability, wage growth, and housing[cite: 1].
+
+---
