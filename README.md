@@ -457,6 +457,6 @@ Explore other end-to-end data science and analytics solutions in my portfolio:
 
 * **[🏠 UK Property Price Predictor](https://github.com/RidhimaGupta4/UK-Property-Price-Predictor)** — High-accuracy machine learning pipeline for real estate valuation and regional market forecasting.
 * **[🏥 NHS A&E Wait Time Analysis](https://github.com/RidhimaGupta4/NHS-AE-Wait-Time-Analysis)** — Operational healthcare analytics and trend forecasting using official NHS digital datasets.
-* **[🇬🇧 UK Cost-of-Living Dashboard](https://github.com/RidhimaGupta4/UK-Cost-of-Living)** — Regional economic data storytelling focused on affordability, wage growth, and housing.
+* **[🇬🇧 UK Cost-of-Living](https://github.com/RidhimaGupta4/UK-Cost-of-Living)** — Regional economic data storytelling focused on affordability, wage growth, and housing.
 
 ---
